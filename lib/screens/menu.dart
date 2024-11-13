@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:forza_shop/widgets/left_drawer.dart';
+import 'package:forza_shop/widgets/product_card.dart';
+import 'package:forza_shop/screens/productentry_form.dart';
+
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306245604'; // NPM
   final String name = 'Ignasius Bramantya Widiprasetya'; // Nama
   final String className = 'PBP F'; // Kelas
+
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.mood),
+    ItemHomepage("Lihat Daftar Produk", Icons.shopping_bag),
     ItemHomepage("Menambah Produk", Icons.add),
     ItemHomepage("Logout", Icons.logout),
   ];
+
   MyHomePage({super.key});
 
   @override
@@ -68,6 +74,7 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      drawer: const LeftDrawer(),
     );
   }
 }
@@ -140,6 +147,11 @@ class ItemCard extends StatelessWidget {
             ..showSnackBar(
               SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"))
             );
+            if (item.name=="Menambah Produk") {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => ProductEntryFormPage(),
+              ));
+            }
         },
         child: Container(
           padding: const EdgeInsets.all(8),
