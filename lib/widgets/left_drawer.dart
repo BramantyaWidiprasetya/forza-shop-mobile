@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forza_shop/screens/list_productentry.dart';
 import 'package:forza_shop/screens/menu.dart';
 import 'package:forza_shop/screens/productentry_form.dart';
 
@@ -11,7 +12,6 @@ class LeftDrawer extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            // TODO: Bagian drawer header
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary,
             ),
@@ -54,10 +54,21 @@ class LeftDrawer extends StatelessWidget {
             leading: const Icon(Icons.person),
             title: const Text('Tambah Product'),
             onTap: () {
-
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => ProductEntryFormPage(),
-              ));
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => ProductEntryFormPage(),
+                ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar Product'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+              );
             },
           ),
         ],
