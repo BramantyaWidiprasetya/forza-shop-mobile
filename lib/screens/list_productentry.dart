@@ -3,6 +3,7 @@ import 'package:forza_shop/models/product_entry.dart';
 import 'package:forza_shop/widgets/left_drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:forza_shop/screens/detail_product.dart';
 
 class ProductEntryPage extends StatefulWidget {
   const ProductEntryPage({super.key});
@@ -59,7 +60,13 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   padding: const EdgeInsets.all(20.0),
-                  child: Column(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => DetailProduct(productFields: snapshot.data![index].fields),
+                      ));
+                    },
+                    child : Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,6 +85,7 @@ class _ProductEntryPageState extends State<ProductEntryPage> {
                       Text("${snapshot.data![index].fields.time}")
                     ],
                   ),
+                  )
                 ),
               );
             }

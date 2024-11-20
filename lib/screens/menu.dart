@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:forza_shop/widgets/left_drawer.dart';
 import 'package:forza_shop/widgets/product_card.dart';
 import 'package:forza_shop/screens/productentry_form.dart';
+import 'package:forza_shop/screens/list_productentry.dart';
+import 'package:forza_shop/screens/login.dart';
 
 
 class MyHomePage extends StatelessWidget {
@@ -150,6 +152,16 @@ class ItemCard extends StatelessWidget {
             if (item.name=="Menambah Produk") {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) => ProductEntryFormPage(),
+              ));
+            }
+            else if (item.name=="Lihat Daftar Produk") {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => ProductEntryPage(),
+              ));
+            }
+            else if (item.name=="Logout") {
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => LoginPage(),
               ));
             }
         },
